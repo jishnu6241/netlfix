@@ -1,27 +1,48 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class SplashScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:netlfix/utils/color_constant.dart';
+import 'package:netlfix/utils/image_constant.dart';
+import 'package:netlfix/view/Username_screen/username_screen.dart';
+
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 6), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const UserName(),
+      ));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Container(
-                height: 180,
-                width: 180,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          'http://www.freepnglogos.com/uploads/netflix-logo-0.png')),
-                )),
-          )
-        ],
-      ),
-    );
+        backgroundColor: ColorConstant.mainblack,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                ImageConstants.netflixPrimeryLogo,
+                scale: 9,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const CircularProgressIndicator(
+                color: ColorConstant.mainred,
+              )
+            ],
+          ),
+        ));
   }
 }

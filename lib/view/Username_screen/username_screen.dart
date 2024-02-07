@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:netlfix/utils/color_constant.dart';
+import 'package:netlfix/utils/databse.dart';
+import 'package:netlfix/utils/image_constant.dart';
 
 class UserName extends StatelessWidget {
   const UserName({super.key});
@@ -6,49 +9,70 @@ class UserName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Image.network(
-          "http://www.freepnglogos.com/uploads/netflix-logo-0.png",
-          scale: 25,
-        ),
-        actions: const [
-          IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.edit,
-                color: Colors.white,
-              ))
-        ],
-      ),
-      backgroundColor: Colors.black,
-      body: Center(
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+        appBar: AppBar(
+          backgroundColor: ColorConstant.mainblack,
+          title: SizedBox(
+            width: 138,
+            height: 38,
+            child: Image.asset('assets/images/netflix-logo.png'),
           ),
-          itemCount: 4,
-          itemBuilder: (context, index) => Column(
-            children: [
-              Container(
-                height: 78,
-                width: 78,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.amber,
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'data',
-                style: TextStyle(color: Colors.white),
-              )
-            ],
-          ),
+          centerTitle: true,
+          actions: [
+            SizedBox(
+              height: 24,
+              width: 24,
+              child: Image.asset(ImageConstants.penbutton),
+            ),
+            const SizedBox(
+              width: 15,
+            )
+          ],
         ),
-      ),
-    );
+        backgroundColor: ColorConstant.mainblack,
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(60),
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 5, crossAxisSpacing: 5),
+              itemCount: DbData.userNameImage.length,
+              itemBuilder: (context, index) => Column(
+                children: [
+                  index < DbData.userNameImage.length
+                      ? Container(
+                          height: 100,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    DbData.userNameImage[index]["image"]!,
+                                  ),
+                                  fit: BoxFit.cover),
+                              color: ColorConstant.mainblack),
+                        )
+                      : SizedBox(
+                          height: 100,
+                          width: 100,
+                          child: Center(
+                              child: Container(
+                            decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/addbutton.png"))),
+                          )),
+                        ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    DbData.userNameImage[index]["name"]!,
+                    style: const TextStyle(color: ColorConstant.mainwhite),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }
