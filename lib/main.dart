@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:netlfix/view/Username_screen/username_screen.dart';
+import 'package:netlfix/view/Splash_sreen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserName(),
+      home: SplashScreen(),
     );
   }
 }

@@ -12,19 +12,16 @@ class UserName extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: ColorConstant.mainblack,
           title: SizedBox(
-            width: 138,
-            height: 38,
+            width: 130,
+            height: 40,
             child: Image.asset('assets/images/netflix-logo.png'),
           ),
           centerTitle: true,
           actions: [
-            SizedBox(
-              height: 24,
-              width: 24,
-              child: Image.asset(ImageConstants.penbutton),
-            ),
+            IconButton(
+                onPressed: null, icon: Image.asset(ImageConstants.penbutton)),
             const SizedBox(
-              width: 15,
+              width: 10,
             )
           ],
         ),

@@ -5,7 +5,7 @@ class DbData {
     {"image": ImageConstants.netflixbox1, "name": "Emenalo"},
     {"image": ImageConstants.netflixbox2, "name": "Onyeka"},
     {"image": ImageConstants.netflixbox3, "name": "Thelma"},
-    {"image": ImageConstants.netflixbox4, "name": "kids"},
+    {"image": ImageConstants.netflixbox4, "name": "Kids"},
     {"image": ImageConstants.addbutton, "name": "Add Profile"}
   ];
 }
