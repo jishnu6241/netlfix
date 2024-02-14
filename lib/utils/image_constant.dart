@@ -6,4 +6,7 @@ class ImageConstants {
   static const String netflixbox4 = "assets/images/netflixBox4.png";
   static const String addbutton = "assets/images/addbutton.png";
   static const String penbutton = "assets/images/penbutton.png";
+  static const String homeImg1 = "assets/images/homeImg1.png";
+  static const String netflixicon = 'assets/images/netflixicon.png';
+  static const String topo10 = 'assets/images/top10.png';
 }
