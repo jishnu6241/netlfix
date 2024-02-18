@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netlfix/utils/color_constant.dart';
+import 'package:netlfix/utils/databse.dart';
 import 'package:netlfix/utils/image_constant.dart';
 import 'package:netlfix/view/HomeScreen/widgets/custom_movie_cards.dart/custom_movie_screen.dart';
 
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Stack(
             children: [
@@ -95,12 +96,12 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: ColorConstant.mainwhite,
+                    color: ColorConstant.maingrey,
                   ),
                   child: const Center(
                     child: Padding(
                       padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                          EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                       child: Row(
                         children: [
                           Icon(
@@ -108,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                             size: 45,
                           ),
                           SizedBox(
-                            width: 20,
+                            width: 10,
                           ),
                           Text(
                             'Play',
@@ -142,9 +143,62 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 50,
           ),
-          const CustomMovieCard(title: "Previews")
+          CustomMovieCard(
+            height: 100,
+            width: 100,
+            title: "Previews",
+            isCircle: true,
+            imageList: DbData.movieImageUrls,
+          ),
+          CustomMovieCard(
+            title: "Continue Watching for ",
+            imageList: DbData.movieImageUrls,
+            isOptinVisiblel: true,
+          ),
+          CustomMovieCard(
+            title: "Popular On Netflix",
+            imageList: DbData.movieImageUrls,
+            height: 161,
+            width: 103,
+          ),
+          CustomMovieCard(
+            title: "Trending Now",
+            imageList: DbData.movieImageUrls,
+            height: 161,
+            width: 103,
+          ),
+          CustomMovieCard(
+            title: "Top 10 in INDIA Today",
+            imageList: DbData.movieImageUrls,
+            height: 161,
+            width: 103,
+          ),
+          CustomMovieCard(
+            title: "My List",
+            imageList: DbData.movieImageUrls,
+            height: 161,
+            width: 103,
+          ),
+          CustomMovieCard(
+            title: "AFRICAN Movies",
+            imageList: DbData.movieImageUrls,
+            height: 161,
+            width: 103,
+          ),
+          CustomMovieCard(
+            title: "Mollywood Movie & TV",
+            imageList: DbData.movieImageUrls,
+            height: 161,
+            width: 103,
+          ),
+          CustomMovieCard(
+            title: "Netflix Original",
+            imageList: DbData.movieImageUrls,
+            height: 161,
+            width: 103,
+          ),
         ],
       ),
     );

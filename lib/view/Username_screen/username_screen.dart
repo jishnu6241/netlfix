@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:netlfix/controller/global%20widgets/user_name_card.dart';
 import 'package:netlfix/utils/color_constant.dart';
 import 'package:netlfix/utils/databse.dart';
 import 'package:netlfix/utils/image_constant.dart';
-import 'package:netlfix/view/HomeScreen/homescreen.dart';
+
+import 'package:netlfix/view/bottam_navigation_bar/bottom_navigation_bar.dart';
 
 class UserName extends StatelessWidget {
   const UserName({super.key});
@@ -42,21 +44,12 @@ class UserName extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const HomeScreen(),
+                                  builder: (context) => const BottomNavbar(),
                                 ));
                           },
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                      DbData.userNameImage[index]["image"]!,
-                                    ),
-                                    fit: BoxFit.cover),
-                                color: ColorConstant.mainblack),
-                          ),
+                          child: UserNameCard(
+                              name: DbData.userNameImage[index]["name"]!,
+                              imgurl: DbData.userNameImage[index]["image"]!),
                         )
                       : InkWell(
                           onTap: () {},
@@ -72,13 +65,6 @@ class UserName extends StatelessWidget {
                             )),
                           ),
                         ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    DbData.userNameImage[index]["name"]!,
-                    style: const TextStyle(color: ColorConstant.mainwhite),
-                  )
                 ],
               ),
             ),

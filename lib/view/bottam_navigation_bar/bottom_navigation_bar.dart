@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:netlfix/utils/color_constant.dart';
 import 'package:netlfix/view/HomeScreen/homescreen.dart';
+import 'package:netlfix/view/comming_soon/commingsoon.dart';
+import 'package:netlfix/view/download_screen/download_screen.dart';
+import 'package:netlfix/view/menu_screen/menu_screen.dart';
 import 'package:netlfix/view/search_screen/search_screen.dart';
 
 class BottomNavbar extends StatefulWidget {
@@ -14,9 +17,9 @@ class _BottomNavbarState extends State<BottomNavbar> {
   List<Widget> screens = [
     const HomeScreen(),
     const SearchScreen(),
-    const Center(child: Text('Comming soon')),
-    const Center(child: Text('Downolad')),
-    const Center(child: Text('More')),
+    const CommingSoonScreen(),
+    const DownloadScreen(),
+    const MenuScreen(),
   ];
   int selectedindex = 0;
   @override
@@ -26,7 +29,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
       body: screens[selectedindex],
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: ColorConstant.mainwhite,
+          selectedItemColor: ColorConstant.mainred,
           unselectedItemColor: ColorConstant.maingrey,
           backgroundColor: ColorConstant.mainblack,
           currentIndex: selectedindex,
